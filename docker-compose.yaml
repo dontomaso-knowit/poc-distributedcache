@@ -1,0 +1,17 @@
+﻿version: '3.9'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 1433:1433
+    volumes:
+      - ~/apps/mssql/data:/var/lib/mssqlql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=mssql1Ipw
+  redis:
+    image: redis/redis-stack:latest
+    ports:
+      - 10001:6379
+      - 13333:8001
